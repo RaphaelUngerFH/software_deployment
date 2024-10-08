@@ -1,7 +1,34 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+   "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage account name."
+      },
+      "minLength": 3,
+      "maxLength": 24
+    },
+    "resourceGroup": {
+      "type": "string",
+      "metadata": {
+        "description": "Resource group for created resources."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "Location of the resources."
+      }
+    },
+    "webAppName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the web application."
+      }
+    }
+  },
   "functions": [],
   "variables": {},
   "resources": [],
