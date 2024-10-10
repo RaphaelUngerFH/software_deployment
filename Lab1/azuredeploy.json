@@ -10,12 +10,6 @@
       "minLength": 3,
       "maxLength": 24
     },
-    "resourceGroup": {
-      "type": "string",
-      "metadata": {
-        "description": "Resource group for created resources."
-      }
-    },
     "location": {
       "type": "string",
       "metadata": {
@@ -31,6 +25,19 @@
   },
   "functions": [],
   "variables": {},
-  "resources": [],
+  "resources": [{
+    "name": "[parameters('storageAccountName')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2023-04-01",
+    "tags": {
+      "displayName": "[parameters('storageAccountName')]"
+    },
+    "location": "[parameters('location')]",
+    "kind": "StorageV2",
+    "sku": {
+      "name": "Standard_LRS",
+      "tier": "Standard"
+    }
+  }],
   "outputs": {}
 }

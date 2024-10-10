@@ -3,6 +3,11 @@ The first lab includes the creation of an ARM template, which creates an Azure S
 ## Setup
 In order to work with ARM templates, the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) was used combined with the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/).
 
+### Configuration
+The *storageAccountName*, *location* and *webAppName* can be configured in the *azuredeploy.parameters.json* file.
+
+The Azure Storage Account resource is configured by the values of the *storageAccountName* and *location* parameters. In order to deploy the free tier, the *sku* property was changed to *Standard_LRS*.
+
 ### Create a resource group
 When deploying a template, a resource group can be defined, which contains the resources.
 
@@ -11,4 +16,4 @@ When deploying a template, a resource group can be defined, which contains the r
 ### Deploy the template
 After the resource group was created, the template can be deployed with the following command.
 
-`az deployment group create --name Lab1 --resource-group Lab1 --template-file azuredeploy.json`
+`az deployment group create --name Lab1 --resource-group Lab1 --template-file azuredeploy.json --parameters @azuredeploy.parameters.json`

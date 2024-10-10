@@ -3,16 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageAccountName": {
-            "value": "Lab1StorageAccount"
-        },
-        "resourceGroup": {
-            "value": "Lab1"
+            "value": "masalab1"
         },
         "location": {
             "value": "switzerlandnorth"
         },
         "webAppName": {
-            "value": "Lab1WebApp"
+            "value": "lab1webapp"
         }
     }
 }
