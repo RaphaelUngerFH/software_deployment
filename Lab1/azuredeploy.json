@@ -24,7 +24,9 @@
     }
   },
   "functions": [],
-  "variables": {},
+  "variables": {
+    "freeServicePlanName": "freeServicePlan"
+  },
   "resources": [{
     "name": "[parameters('storageAccountName')]",
     "type": "Microsoft.Storage/storageAccounts",
@@ -37,6 +39,41 @@
     "sku": {
       "name": "Standard_LRS",
       "tier": "Standard"
+    }
+  },
+  {
+      "name": "[variables('freeServicePlanName')]",
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2023-01-01",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "F1",
+        "tier": "Free",
+        "size": "F1",
+        "family": "F",
+        "capacity": 1
+      },
+      "properties": {
+        "reserved": false,
+        "isXenon": false,
+        "hyperV": false
+      }
+    },
+  {
+    "name": "[parameters('webAppName')]",
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2023-01-01",
+    "location": "[resourceGroup().location]",
+    "tags": {
+      "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('freeServicePlanName'))]": "Resource",
+      "displayName": "[parameters('webAppName')]"
+    },
+    "dependsOn": [
+      "[resourceId('Microsoft.Web/serverfarms', variables('freeServicePlanName'))]"
+    ],
+    "properties": {
+      "name": "[parameters('webAppName')]",
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('freeServicePlanName'))]"
     }
   }],
   "outputs": {}
