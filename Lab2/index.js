@@ -6,6 +6,11 @@ app.get('/', (_, res) => {
   res.send('Hello World!');
 });
 
-app.listen(port, () => {
-    console.log(`App listening on http://localhost:${port}`);
-});
+// Only listen on execution and not for tests
+if (require.main === module) {
+    app.listen(port, () => {
+        console.log(`App listening on http://localhost:${port}`);
+    });
+}
+
+module.exports = app;
