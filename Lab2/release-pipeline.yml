@@ -14,11 +14,16 @@ stages:
               artifactName: 'drop'
               downloadPath: '$(System.ArtifactsDirectory)'
 
+          - script: |
+              export APPINSIGHTS_CONNECTION_STRING=$(APPINSIGHTS_CONNECTION_STRING)
+              npm start
+            displayName: 'Start Application with Application Insights'
+
           - task: AzureWebApp@1
             inputs:
               azureSubscription: '$(AZURE_SUBSCRIPTION_ID)'
               appType: 'webAppLinux'
-              appName: 'mawalab2dev'
+              appName: 'mawalab2prod'
               package: '$(System.ArtifactsDirectory)/drop'
             displayName: 'Deploy to Azure Web App'
 

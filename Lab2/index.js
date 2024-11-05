@@ -1,3 +1,13 @@
+const appInsights = require('applicationinsights');
+appInsights.setup(process.env.APPINSIGHTS_CONNECTION_STRING)
+  .setAutoCollectRequests(true)
+  .setAutoCollectPerformance(true)
+  .setAutoCollectExceptions(true)
+  .setAutoCollectDependencies(true)
+  .setAutoDependencyCorrelation(true)
+  .start();
+
+
 const express = require('express');
 const app = express();
 const port = 3000;
