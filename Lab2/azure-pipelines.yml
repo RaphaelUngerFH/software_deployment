@@ -22,7 +22,7 @@ steps:
 
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: 'AzureFH'
+    azureSubscription: '$(AZURE_SUBSCRIPTION_ID)'
     appType: 'webAppLinux'
     appName: 'mawalab2dev'
     package: '$(System.DefaultWorkingDirectory)'
