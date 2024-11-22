@@ -1,0 +1,37 @@
+stages:
+- stage: Production
+  jobs:
+  - deployment: DeployToProduction
+    environment: 'Production'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadBuildArtifacts@0
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'drop'
+              downloadPath: '$(System.ArtifactsDirectory)'
+
+          - script: |
+              export APPINSIGHTS_CONNECTION_STRING=$(APPINSIGHTS_CONNECTION_STRING)
+              npm start
+            displayName: 'Start Application with Application Insights'
+
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: '$(AZURE_SUBSCRIPTION_ID)'
+              appType: 'webAppLinux'
+              appName: 'mawalab2prod'
+              package: '$(System.ArtifactsDirectory)/drop'
+            displayName: 'Deploy to Azure Web App'
+
+  - job: ManualValidation
+    displayName: 'Manual Validation'
+    pool: server
+    steps:
+    - task: ManualValidation@0
+      inputs:
+        instructions: 'Please validate the deployment to production.'
+        onTimeout: 'reject'
