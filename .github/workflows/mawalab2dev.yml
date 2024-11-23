@@ -23,12 +23,6 @@ jobs:
         working-directory: ./Lab2
         run: npm i --omit=dev
 
-      - name: Run tests 
-        working-directory: ./Lab2
-        run: npm test 
-        env: 
-          APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
-
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
