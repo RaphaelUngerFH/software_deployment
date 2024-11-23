@@ -3,8 +3,8 @@ The second lab includes the creation of a Node.js application with Express and i
 
 
 ## Links to the Azure Web Apps
-- [Development](https://mawalab2dev.azurewebsites.net/)
-- [Production](https://mawalab2prod.azurewebsites.net/)
+- [Development](https://calm-mushroom-042d67f03.5.azurestaticapps.net/)
+- [Production](https://gray-water-08b6a5a03.5.azurestaticapps.net/)
 
 
 ## Pipelines
