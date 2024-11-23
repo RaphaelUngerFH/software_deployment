@@ -36,4 +36,5 @@ jobs:
           api_location: "/Lab2" # Api source code path - optional
           output_location: ""
           skip_app_build: true
+          app_build_command: "npm i --omit=dev"
           ###### End of Repository/Build Configurations ######
