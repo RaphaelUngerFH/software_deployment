@@ -26,6 +26,8 @@ jobs:
       - name: Run tests 
         run: npm test 
         working-directory: ./Lab2
+        env: 
+          APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING
 
       - name: Build And Deploy
         id: builddeploy
@@ -39,5 +41,5 @@ jobs:
           app_location: "/Lab2" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
-          app_build_command: ""
+          skip_app_build: true
           ###### End of Repository/Build Configurations ######
