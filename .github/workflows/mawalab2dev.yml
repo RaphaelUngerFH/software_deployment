@@ -21,7 +21,13 @@ jobs:
 
       - name: Install dependencies 
         working-directory: ./Lab2
-        run: npm i --omit=dev
+        run: npm i
+      
+      - name: Run tests 
+        working-directory: ./Lab2
+        run: npm test 
+        env: 
+          APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
 
       - name: Build And Deploy
         id: builddeploy
@@ -30,6 +36,7 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_MUSHROOM_042D67F03 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
+          functions_language: "node"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/Lab2" # App source code path
