@@ -20,18 +20,20 @@ jobs:
           node-version: 'lts/*'
 
       - name: Install dependencies 
-        run: npm i
         working-directory: ./Lab2
+        run: npm i
 
       - name: Run tests 
-        run: npm test 
         working-directory: ./Lab2
+        run: npm test 
         env: 
           APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
-
-      - run: | 
-          mkdir -p deployment 
-          cp -R ./Lab2/* deployment
+      
+      - name: Remove and install production dependencies
+        working-directory: ./Lab2
+        run: | 
+          rm -rf node_modules
+          npm i --omit=dev
 
       - name: Build And Deploy
         id: builddeploy
@@ -42,8 +44,8 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "deployment" # App source code path
-          api_location: "deployment" # Api source code path - optional
+          app_location: "/Lab2" # App source code path
+          api_location: "/Lab2" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           skip_app_build: true
           ###### End of Repository/Build Configurations ######
