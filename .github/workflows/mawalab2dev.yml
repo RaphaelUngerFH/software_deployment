@@ -27,7 +27,7 @@ jobs:
         run: npm test 
         working-directory: ./Lab2
         env: 
-          APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING
+          APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
 
       - name: Build And Deploy
         id: builddeploy
