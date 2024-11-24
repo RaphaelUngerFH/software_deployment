@@ -1,12 +1,6 @@
 {
-    "routes": [
-      {
-        "route": "/api/*",
-        "allowedRoles": ["authenticated"]
-      }
-    ],
-    "platform": {
-      "apiRuntime": "node:18"
-    }
+  "platform": {
+    "apiRuntime": "node:18"
   }
+}
   

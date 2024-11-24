@@ -14,20 +14,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js 
-        uses: actions/setup-node@v2 
-        with: 
-          node-version: 'lts/*'
+    #  - name: Setup Node.js 
+    #    uses: actions/setup-node@v2 
+    #    with: 
+    #      node-version: 'lts/*'
 
-      - name: Install dependencies 
-        working-directory: ./Lab2
-        run: npm i
+    #  - name: Install dependencies 
+    #    working-directory: ./Lab2
+    #    run: npm i
       
-      - name: Run tests 
-        working-directory: ./Lab2
-        run: npm test 
-        env: 
-          APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
+    #  - name: Run tests 
+    #    working-directory: ./Lab2
+    #    run: npm test 
+    #    env: 
+    #      APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
 
       - name: Build And Deploy
         id: builddeploy
@@ -41,7 +41,7 @@ jobs:
           app_location: "/Lab2" # App source code path
           api_location: "/Lab2" # Api source code path - optional
           output_location: ""
-          skip_app_build: true
-          skip_api_build: true
+          #skip_app_build: true
+          #skip_api_build: true
           api_build_command: "npm i --omit=dev"
           ###### End of Repository/Build Configurations ######
