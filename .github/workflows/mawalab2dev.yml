@@ -49,4 +49,7 @@ jobs:
           #skip_api_build: true
           #app_build_command: "npm i --omit=dev"
           api_build_command: "npm i --omit=dev"
+          env: 
+            ENABLE_ORYX_BUILD: true 
+            SCM_DO_BUILD_DURING_DEPLOYMENT: true
           ###### End of Repository/Build Configurations ######
