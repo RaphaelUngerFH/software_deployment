@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies 
         working-directory: ./Lab2
-        run: npm i --omit=dev
+        run: npm i
       
       - name: Run tests 
         working-directory: ./Lab2
