@@ -32,6 +32,10 @@ jobs:
       - name: Remove node_modules
         working-directory: ./Lab2
         run: rm -rf node_modules
+      
+      - name: Install production dependencies 
+        working-directory: ./Lab2
+        run: npm i --omit=dev
 
       - name: Build And Deploy
         id: builddeploy
@@ -46,10 +50,7 @@ jobs:
           api_location: "/Lab2" # Api source code path - optional
           output_location: ""          
           skip_app_build: true
-          #skip_api_build: true
+          skip_api_build: true
           #app_build_command: "npm i --omit=dev"
-          api_build_command: "npm i --omit=dev"
-        env: 
-          ENABLE_ORYX_BUILD: true 
-          SCM_DO_BUILD_DURING_DEPLOYMENT: true
+          #api_build_command: "npm i --omit=dev"
           ###### End of Repository/Build Configurations ######

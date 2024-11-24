@@ -1,11 +1,11 @@
-const appInsights = require('applicationinsights');
+/*const appInsights = require('applicationinsights');
 appInsights.setup(process.env.APPINSIGHTS_CONNECTION_STRING)
   .setAutoCollectRequests(true)
   .setAutoCollectPerformance(true)
   .setAutoCollectExceptions(true)
   .setAutoCollectDependencies(true)
   .setAutoDependencyCorrelation(true)
-  .start();
+  .start();*/
 
 
 const express = require('express');
