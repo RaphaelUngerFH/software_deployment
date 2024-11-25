@@ -8,12 +8,31 @@ The second lab includes the creation of an Azure Static Web App and its deployme
 
 
 ## Pipelines
-### Build/Test/Deploy Pipeline
-TODO
+### Build/Test/Deploy Pipeline for Develop Environment
+The pipeline for the develop environment is configured in [mawalab2dev.yml](../.github/workflows/mawalab2dev.yml). This Github Action is automatically triggered on every commit in the main branch.
 
-### Release Pipeline
-TODO
+![Development Deployment Pipeline](../images/lab2_dev_deployment_pipeline.png)
+*Build/Test/Deploy Pipeline for Develop Environment in Github Actions*
+
+![Development Deployment Pipeline Failure](../images/lab2_dev_deployment_failure.png)
+*Build/Test/Deploy Pipeline Failure*
+
+![Development Deployment Pipeline Success](../images/lab2_dev_deployment_success.png)
+*Build/Test/Deploy Pipeline Success*
+
+### Release Pipeline for Production Environment
+The pipeline for the production environment is configured in [mawalab2prod.yml](../.github/workflows/mawalab2dev.yml). This Github Action is automatically triggered on every commit (which also includes merging from main into release) into the release branch.
+
+![Production Deployment Pipeline](../images/lab2_prod_deployment_pipeline.png)
+*Build/Test/Deploy Pipeline for Production Environment in Github Actions*
 
 
-## Release Process
-TOOD
+## Application Insights
+Application Insights are configured for both Azure Static Web Apps directly in the Azure Portal following the [official guide](https://learn.microsoft.com/en-us/azure/static-web-apps/monitor).
+
+![Development Application Insights](../images/lab2_dev_app-insights.png)
+*Application Insights for Develop Environment*
+
+
+![Production Application Insights](../images/lab2_prod_app-insights.png)
+*Application Insights for Production Environment*
