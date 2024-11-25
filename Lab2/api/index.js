@@ -7,12 +7,13 @@ appInsights.setup(process.env.APPINSIGHTS_CONNECTION_STRING)
   .setAutoDependencyCorrelation(true)
   .start();*/
 
-
 const express = require('express');
 const app = express();
 const port = 3000;
 
-app.get('/hello', (_, res) => {
+app.use(express.static('../src'));
+
+app.get('/api/hello', (_, res) => {
   res.send('Hello World!');
 });
 
