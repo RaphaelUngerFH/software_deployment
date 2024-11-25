@@ -7,7 +7,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0"
+    "@azure/functions": "^4.0.0",
+    "applicationinsights": "^3.4.0"
   },
   "devDependencies": {
     "jest": "^29.7.0",

@@ -1,5 +1,5 @@
 # Lab 2
-The second lab includes the creation of a Node.js application with Express and its deployment with a GitHub Actions pipeline. This task requires a build and release pipeline as well as the implementation of Azure Application Insights.
+The second lab includes the creation of an Azure Static Web App and its deployment with a GitHub Actions pipeline. Azure Functions is used to deploy the API and Jest as a test framework. This task requires a build and release pipeline as well as the implementation of Azure Application Insights.
 
 
 ## Links to the Azure Web Apps
