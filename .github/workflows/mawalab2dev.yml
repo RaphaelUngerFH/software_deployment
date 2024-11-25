@@ -7,7 +7,6 @@ on:
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
@@ -25,9 +24,7 @@ jobs:
       
       - name: Run tests 
         working-directory: ./Lab2/api
-        run: npm test 
-        env: 
-          APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
+        run: npm test
         
       - name: Remove node_modules
         working-directory: ./Lab2/api
@@ -44,13 +41,8 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_MUSHROOM_042D67F03 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/Lab2" # App source code path
-          api_location: "/Lab2/api"
+          api_location: "/Lab2/api" # Api source code path
           output_location: ""          
           skip_app_build: true
           skip_api_build: true
-          #app_build_command: "npm i --omit=dev"
-          #api_build_command: "npm i --omit=dev"
-          ###### End of Repository/Build Configurations ######
