@@ -7,21 +7,8 @@ appInsights.setup(process.env.APPINSIGHTS_CONNECTION_STRING)
   .setAutoDependencyCorrelation(true)
   .start();*/
 
-const express = require('express');
-const app = express();
-const port = 3000;
+const { app } = require('@azure/functions');
 
-app.use(express.static('../src'));
-
-app.get('/api/hello', (_, res) => {
-  res.send('Hello World!');
+app.setup({
+    enableHttpStream: true,
 });
-
-// Only listen on execution and not for tests
-if (require.main === module) {
-    app.listen(port, () => {
-        console.log(`App listening on http://localhost:${port}`);
-    });
-}
-
-module.exports = app;
