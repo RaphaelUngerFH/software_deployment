@@ -4,9 +4,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: lab3-example1
-      MYSQL_DATABASE: test
-      MYSQL_USER: test
-      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: lab3
     volumes:
           - db_data:/var/lib/mysql
 
@@ -16,10 +14,10 @@ services:
     depends_on:
       - db
     environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: test
-      WORDPRESS_DB_PASSWORD: test
-      WORDPRESS_DB_NAME: test
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: lab3-example1
+      WORDPRESS_DB_NAME: lab3
     volumes:
       - wp_data:/var/www/html
     ports:
