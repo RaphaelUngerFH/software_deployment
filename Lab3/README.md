@@ -17,4 +17,4 @@ docker compose down
 ```
 
 ## Part 2
-The second part is located in *Lab3/Teil2*.
+The second part is located in *Lab3/Teil2*. [MariaDB](https://mariadb.org/) is used as a database as it is simpler to be installed on Debian and is compatible with MySQL.
