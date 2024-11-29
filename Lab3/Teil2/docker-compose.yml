@@ -1,0 +1,22 @@
+services:
+  db:
+    build: ./mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: lab3-example2
+      MYSQL_DATABASE: lab3
+    volumes:
+      - db_data:/var/lib/mysql
+      - /srv/docker/sockets/mariadb:/run/mysqld
+
+  wordpress:
+    build: ./wordpress
+    depends_on:
+      - db
+    volumes:
+      - wp_data:/var/www/html
+    ports:
+      - "8000:80"
+
+volumes:
+  db_data:
+  wp_data:

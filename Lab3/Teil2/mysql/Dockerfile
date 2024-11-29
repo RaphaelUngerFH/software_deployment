@@ -3,8 +3,8 @@ FROM debian:latest
 # Install MariaDB
 RUN apt update && apt install -y mariadb-server && apt clean
 
-VOLUME /var/lib/mysql
+WORKDIR /var/lib/mysql
 
 EXPOSE 3306
 
-CMD ["mysqld"]
+CMD ["mysqld", "--user=root"]
