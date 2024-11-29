@@ -1,0 +1,28 @@
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: lab3-example1
+      MYSQL_DATABASE: lab3
+    volumes:
+          - db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:latest
+    restart: always
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: lab3-example1
+      WORDPRESS_DB_NAME: lab3
+    volumes:
+      - wp_data:/var/www/html
+    ports:
+      - "8000:80"
+
+volumes:
+  db_data:
+  wp_data:
