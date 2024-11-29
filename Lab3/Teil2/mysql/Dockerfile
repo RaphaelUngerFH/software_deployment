@@ -1,6 +1,6 @@
-# Dockerfile für MySQL
 FROM debian:latest
 
+# Install MariaDB
 RUN apt update && apt install -y mariadb-server && apt clean
 
 VOLUME /var/lib/mysql
