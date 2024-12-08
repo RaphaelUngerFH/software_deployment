@@ -17,6 +17,8 @@ spec:
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
+          value: lab4-pw
+        - name: MYSQL_DATABASE
           value: lab4
         ports:
         - containerPort: 3306
