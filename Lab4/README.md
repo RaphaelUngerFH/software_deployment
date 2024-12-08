@@ -14,6 +14,10 @@ The application can be accessed on ```http://<minikube-ip>:30080``` as described
 ## Configuration
 WordPress and MySQL are configured in the corresponding YAML-files called *mysql-deployment.yml* and *wordpress-deployment.yml*.
 
+Both files contain a *Deployment* and *Service* kind.
+*Deployment* ensures that a container is created with the necessary environment variables for the database configuration on both sides.
+*Service* ensures that a specific container is accessable on specific ports. The MySQL container can be accessed on port 3306 and the WordPress container on port 80 with the node port set to 30080, which is necessary for local access in the browser.
+
 ## Deployment Steps
 ### 1. Start minikube
 After installation, [minikube](https://minikube.sigs.k8s.io/docs/) needs to be started for a local AKS cluster with the following command:
